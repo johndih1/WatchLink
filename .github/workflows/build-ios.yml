@@ -1,4 +1,4 @@
-name: Build WatchLink unsigned IPA
+name: Build WatchLink
 
 on:
   workflow_dispatch:
@@ -10,23 +10,40 @@ jobs:
   build:
     runs-on: macos-15
     timeout-minutes: 20
+
     steps:
       - uses: actions/checkout@v4
-      - name: Build for a physical iPhone
+
+      - name: Restore project folders
         run: |
-          xcodebuild -project WatchLink.xcodeproj -scheme WatchLink \
-            -configuration Release -sdk iphoneos -destination 'generic/platform=iOS' \
-            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO \
-            CONFIGURATION_BUILD_DIR="$RUNNER_TEMP/watchlink-build" build
-      - name: Package unsigned IPA
+          mkdir -p WatchLink/Assets.xcassets/AppIcon.appiconset
+          mkdir -p WatchLink.xcodeproj/xcshareddata/xcschemes
+          cp WatchLinkApp.swift WatchBluetooth.swift ContentView.swift Info.plist WatchLink/
+          cp project.pbxproj WatchLink.xcodeproj/
+          cp WatchLink.xcscheme WatchLink.xcodeproj/xcshareddata/xcschemes/
+          cp AppIcon.png Contents.json WatchLink/Assets.xcassets/AppIcon.appiconset/
+          printf '%s\n' '{"info":{"author":"xcode","version":1}}' > WatchLink/Assets.xcassets/Contents.json
+
+      - name: Build iPhone app
         run: |
-          mkdir -p "$RUNNER_TEMP/watchlink-package/Payload"
-          cp -R "$RUNNER_TEMP/watchlink-build/WatchLink.app" "$RUNNER_TEMP/watchlink-package/Payload/"
-          cd "$RUNNER_TEMP/watchlink-package"
-          /usr/bin/zip -qr "$GITHUB_WORKSPACE/WatchLink-unsigned.ipa" Payload
+          xcodebuild -project WatchLink.xcodeproj \
+            -scheme WatchLink \
+            -configuration Release \
+            -sdk iphoneos \
+            -destination 'generic/platform=iOS' \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CONFIGURATION_BUILD_DIR="$RUNNER_TEMP/build" build
+
+      - name: Package IPA
+        run: |
+          mkdir -p "$RUNNER_TEMP/package/Payload"
+          cp -R "$RUNNER_TEMP/build/WatchLink.app" "$RUNNER_TEMP/package/Payload/"
+          cd "$RUNNER_TEMP/package"
+          zip -qr "$GITHUB_WORKSPACE/WatchLink-unsigned.ipa" Payload
+
       - uses: actions/upload-artifact@v4
         with:
           name: WatchLink-unsigned-IPA
           path: WatchLink-unsigned.ipa
           if-no-files-found: error
-          retention-days: 7
