@@ -95,7 +95,7 @@
 		};
 		"000000000000000000000007" = {
 			"isa" = "PBXNativeTarget";
-			"buildConfigurationList" = "000000000000000000000009";
+			"XCConfigurationList" = "000000000000000000000009";
 			"buildPhases" = ("000000000000000000000004", "000000000000000000000006", "000000000000000000000005");
 			"buildRules" = ();
 			"dependencies" = ();
@@ -105,7 +105,7 @@
 			"productType" = "com.apple.product-type.application";
 		};
 		"000000000000000000000008" = {
-			"isa" = "PBXConfigurationList";
+			"isa" = "XCConfigurationList";
 			"buildConfigurations" = ("00000000000000000000000A", "00000000000000000000000B");
 			"defaultConfigurationIsVisible" = 0;
 			"defaultConfigurationName" = "Release";
