@@ -95,7 +95,7 @@
 		};
 		"000000000000000000000007" = {
 			"isa" = "PBXNativeTarget";
-			"XCConfigurationList" = "000000000000000000000009";
+			"buildConfigurationList" = "000000000000000000000009";
 			"buildPhases" = ("000000000000000000000004", "000000000000000000000006", "000000000000000000000005");
 			"buildRules" = ();
 			"dependencies" = ();
@@ -111,7 +111,7 @@
 			"defaultConfigurationName" = "Release";
 		};
 		"000000000000000000000009" = {
-			"isa" = "PBXConfigurationList";
+			"isa" = "XCConfigurationList";
 			"buildConfigurations" = ("00000000000000000000000C", "00000000000000000000000D");
 			"defaultConfigurationIsVisible" = 0;
 			"defaultConfigurationName" = "Release";
@@ -197,3 +197,4 @@
 	};
 	"rootObject" = "00000000000000000000000E";
 }
+
