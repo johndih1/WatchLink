@@ -1,0 +1,32 @@
+name: Build WatchLink unsigned IPA
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: macos-15
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build for a physical iPhone
+        run: |
+          xcodebuild -project WatchLink.xcodeproj -scheme WatchLink \
+            -configuration Release -sdk iphoneos -destination 'generic/platform=iOS' \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO \
+            CONFIGURATION_BUILD_DIR="$RUNNER_TEMP/watchlink-build" build
+      - name: Package unsigned IPA
+        run: |
+          mkdir -p "$RUNNER_TEMP/watchlink-package/Payload"
+          cp -R "$RUNNER_TEMP/watchlink-build/WatchLink.app" "$RUNNER_TEMP/watchlink-package/Payload/"
+          cd "$RUNNER_TEMP/watchlink-package"
+          /usr/bin/zip -qr "$GITHUB_WORKSPACE/WatchLink-unsigned.ipa" Payload
+      - uses: actions/upload-artifact@v4
+        with:
+          name: WatchLink-unsigned-IPA
+          path: WatchLink-unsigned.ipa
+          if-no-files-found: error
+          retention-days: 7

@@ -1,0 +1,199 @@
+// !$*UTF8*$!
+{
+	"archiveVersion" = 1;
+	"classes" = {
+	};
+	"objectVersion" = 56;
+	"objects" = {
+		"000000000000000000000014" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "WatchLinkApp.swift";
+			"sourceTree" = "<group>";
+		};
+		"00000000000000000000001E" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "000000000000000000000014";
+		};
+		"000000000000000000000015" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "WatchBluetooth.swift";
+			"sourceTree" = "<group>";
+		};
+		"00000000000000000000001F" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "000000000000000000000015";
+		};
+		"000000000000000000000016" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "ContentView.swift";
+			"sourceTree" = "<group>";
+		};
+		"000000000000000000000020" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "000000000000000000000016";
+		};
+		"000000000000000000000017" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "folder.assetcatalog";
+			"path" = "Assets.xcassets";
+			"sourceTree" = "<group>";
+		};
+		"000000000000000000000021" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "000000000000000000000017";
+		};
+		"000000000000000000000018" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "text.plist.xml";
+			"path" = "Info.plist";
+			"sourceTree" = "<group>";
+		};
+		"000000000000000000000028" = {
+			"isa" = "PBXFileReference";
+			"explicitFileType" = "wrapper.application";
+			"includeInIndex" = 0;
+			"path" = "WatchLink.app";
+			"sourceTree" = "BUILT_PRODUCTS_DIR";
+		};
+		"000000000000000000000001" = {
+			"isa" = "PBXGroup";
+			"children" = ("000000000000000000000002", "000000000000000000000003");
+			"sourceTree" = "<group>";
+		};
+		"000000000000000000000002" = {
+			"isa" = "PBXGroup";
+			"children" = ("000000000000000000000014", "000000000000000000000015", "000000000000000000000016", "000000000000000000000017", "000000000000000000000018");
+			"path" = "WatchLink";
+			"sourceTree" = "<group>";
+		};
+		"000000000000000000000003" = {
+			"isa" = "PBXGroup";
+			"children" = ("000000000000000000000028");
+			"name" = "Products";
+			"sourceTree" = "<group>";
+		};
+		"000000000000000000000004" = {
+			"isa" = "PBXSourcesBuildPhase";
+			"buildActionMask" = 2147483647;
+			"files" = ("00000000000000000000001E", "00000000000000000000001F", "000000000000000000000020");
+			"runOnlyForDeploymentPostprocessing" = 0;
+		};
+		"000000000000000000000005" = {
+			"isa" = "PBXResourcesBuildPhase";
+			"buildActionMask" = 2147483647;
+			"files" = ("000000000000000000000021");
+			"runOnlyForDeploymentPostprocessing" = 0;
+		};
+		"000000000000000000000006" = {
+			"isa" = "PBXFrameworksBuildPhase";
+			"buildActionMask" = 2147483647;
+			"files" = ();
+			"runOnlyForDeploymentPostprocessing" = 0;
+		};
+		"000000000000000000000007" = {
+			"isa" = "PBXNativeTarget";
+			"buildConfigurationList" = "000000000000000000000009";
+			"buildPhases" = ("000000000000000000000004", "000000000000000000000006", "000000000000000000000005");
+			"buildRules" = ();
+			"dependencies" = ();
+			"name" = "WatchLink";
+			"productName" = "WatchLink";
+			"productReference" = "000000000000000000000028";
+			"productType" = "com.apple.product-type.application";
+		};
+		"000000000000000000000008" = {
+			"isa" = "PBXConfigurationList";
+			"buildConfigurations" = ("00000000000000000000000A", "00000000000000000000000B");
+			"defaultConfigurationIsVisible" = 0;
+			"defaultConfigurationName" = "Release";
+		};
+		"000000000000000000000009" = {
+			"isa" = "PBXConfigurationList";
+			"buildConfigurations" = ("00000000000000000000000C", "00000000000000000000000D");
+			"defaultConfigurationIsVisible" = 0;
+			"defaultConfigurationName" = "Release";
+		};
+		"00000000000000000000000A" = {
+			"isa" = "XCBuildConfiguration";
+			"buildSettings" = {
+				"CLANG_ENABLE_MODULES" = "YES";
+				"SDKROOT" = "iphoneos";
+				"IPHONEOS_DEPLOYMENT_TARGET" = "16.0";
+				"SWIFT_VERSION" = "5.0";
+				"SWIFT_OPTIMIZATION_LEVEL" = "-Onone";
+				"DEBUG_INFORMATION_FORMAT" = "dwarf";
+				"SWIFT_ACTIVE_COMPILATION_CONDITIONS" = "DEBUG";
+			};
+			"name" = "Debug";
+		};
+		"00000000000000000000000B" = {
+			"isa" = "XCBuildConfiguration";
+			"buildSettings" = {
+				"CLANG_ENABLE_MODULES" = "YES";
+				"SDKROOT" = "iphoneos";
+				"IPHONEOS_DEPLOYMENT_TARGET" = "16.0";
+				"SWIFT_VERSION" = "5.0";
+				"SWIFT_OPTIMIZATION_LEVEL" = "-O";
+				"DEBUG_INFORMATION_FORMAT" = "dwarf-with-dsym";
+			};
+			"name" = "Release";
+		};
+		"00000000000000000000000C" = {
+			"isa" = "XCBuildConfiguration";
+			"name" = "Debug";
+			"buildSettings" = {
+				"ASSETCATALOG_COMPILER_APPICON_NAME" = "AppIcon";
+				"CODE_SIGN_STYLE" = "Automatic";
+				"CURRENT_PROJECT_VERSION" = "1";
+				"MARKETING_VERSION" = "0.1";
+				"GENERATE_INFOPLIST_FILE" = "NO";
+				"INFOPLIST_FILE" = "WatchLink/Info.plist";
+				"PRODUCT_BUNDLE_IDENTIFIER" = "org.personal.watchlink";
+				"PRODUCT_NAME" = "$(TARGET_NAME)";
+				"TARGETED_DEVICE_FAMILY" = "1";
+				"SUPPORTED_PLATFORMS" = "iphoneos iphonesimulator";
+				"SUPPORTS_MACCATALYST" = "NO";
+				"LD_RUNPATH_SEARCH_PATHS" = ("$(inherited)", "@executable_path/Frameworks");
+			};
+		};
+		"00000000000000000000000D" = {
+			"isa" = "XCBuildConfiguration";
+			"name" = "Release";
+			"buildSettings" = {
+				"ASSETCATALOG_COMPILER_APPICON_NAME" = "AppIcon";
+				"CODE_SIGN_STYLE" = "Automatic";
+				"CURRENT_PROJECT_VERSION" = "1";
+				"MARKETING_VERSION" = "0.1";
+				"GENERATE_INFOPLIST_FILE" = "NO";
+				"INFOPLIST_FILE" = "WatchLink/Info.plist";
+				"PRODUCT_BUNDLE_IDENTIFIER" = "org.personal.watchlink";
+				"PRODUCT_NAME" = "$(TARGET_NAME)";
+				"TARGETED_DEVICE_FAMILY" = "1";
+				"SUPPORTED_PLATFORMS" = "iphoneos iphonesimulator";
+				"SUPPORTS_MACCATALYST" = "NO";
+				"LD_RUNPATH_SEARCH_PATHS" = ("$(inherited)", "@executable_path/Frameworks");
+			};
+		};
+		"00000000000000000000000E" = {
+			"isa" = "PBXProject";
+			"attributes" = {
+				"BuildIndependentTargetsInParallel" = "YES";
+				"LastUpgradeCheck" = "1600";
+			};
+			"buildConfigurationList" = "000000000000000000000008";
+			"compatibilityVersion" = "Xcode 14.0";
+			"developmentRegion" = "en";
+			"hasScannedForEncodings" = 0;
+			"knownRegions" = ("en", "Base");
+			"mainGroup" = "000000000000000000000001";
+			"productRefGroup" = "000000000000000000000003";
+			"projectDirPath" = "";
+			"projectRoot" = "";
+			"targets" = ("000000000000000000000007");
+		};
+	};
+	"rootObject" = "00000000000000000000000E";
+}
